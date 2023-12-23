@@ -8,8 +8,7 @@
 
 # Todos
 - [x] Styling of any kind
-- [ ] Settings menu
-- [ ] Upload to Github
+- [x] Upload to Github
   - [ ] Move tailwind to a CI step
 - [ ] Play sound on timer end
 - [ ] Add customization
