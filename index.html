@@ -34,7 +34,7 @@
 		class="
 			h-screen
 			flex items-center justify-center gap-y-60 gap-x-20
-			flex-col xl:flex-row
+			flex-col lg:flex-row
 			text-xl text-black bg-white
 			transition-colors
 		"
@@ -93,7 +93,7 @@
 		<div
 			class="
 				flex gap-x-6 gap-y-2
-				xl:flex-col
+				lg:flex-col
 				transition-opacity
 			"
 			:class="paused || 'opacity-0 pointer-events-none'"
@@ -102,8 +102,8 @@
 				<button
 					class="
 						flex gap-x-2
-						flex-col xl:flex-row
-						justify-center xl:justify-start
+						flex-col lg:flex-row
+						justify-center lg:justify-start
 						px-2 min-w-24
 						rounded-sm
 					"
@@ -113,7 +113,7 @@
 					<span x-text="timer.title"></span>
 					<span class="hidden lg:block">·</span>
 					<span
-						class="text-sm xl:text-xl text-gray-700"
+						class="text-sm lg:text-xl text-gray-700"
 						:class="selectedTimer == i && 'text-gray-300'"
 						x-text="seconds_to_mmss(timer.duration)"
 					></span>
