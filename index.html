@@ -40,9 +40,9 @@
 		:class="paused || '!bg-black !text-white'"
 		x-data="{
 			timers: $persist([
-				{ duration: 45*60, title: 'Work'       },
-				{ duration: 5*60,  title: 'Short Rest' },
-				{ duration: 15*60,  title: 'Long Rest' },
+				{ duration: 45*60, title: 'work'       },
+				{ duration: 5*60,  title: 'short rest' },
+				{ duration: 15*60,  title: 'long rest' },
 			]),
 			selectedTimer: $persist(0),
 			paused:    $persist(true),
