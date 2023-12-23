@@ -63,10 +63,11 @@
 		@keyup.space.prevent.window="if (remaining > 0) paused = !paused"
 	>
 		<!-- start timer -->
-		<div class="">
+		<div
+			@click="if (remaining > 0) paused = !paused"
+		>
 			<button
 				class="text-9xl text-center"
-				@click="paused = !paused"
 				x-text="seconds_to_mmss(remaining)"
 			>
 				00:00
@@ -81,7 +82,6 @@
 					transition-opacity
 				"
 				:class="paused || 'opacity-0'"
-				@click="if (remaining > 0) paused = !paused"
 				x-text="'click to ' + (timers[selectedTimer].duration == remaining ? 'start' : 'resume')"
 			>
 			</h1>
