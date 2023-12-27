@@ -7,11 +7,12 @@
 - [Github Pages](https://pages.github.com) for hosting
 
 # Todos
-- [x] Styling of any kind
-- [x] Upload to Github
-  - [ ] Move tailwind to a CI step
+- [ ] Move tailwind to a CI step
 - [ ] Play sound on timer end
 - [ ] Add customization
   - [ ] Colors customization (text prim/sec/bg paused/running, per timer)
   - [ ] Durations customization
-- [ ] Issues section in this readme
+
+# Contributing
+This project uses lowercase commit messages. Merge requests containing commits starting with capital letters will not be approved.
+
