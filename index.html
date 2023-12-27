@@ -37,7 +37,7 @@
 			text-xl text-black bg-white
 			transition-colors
 		"
-		:class="paused || '!bg-black !text-white'"
+		:class="paused || 'bg-black text-white'"
 		x-data="{
 			timers: $persist([
 				{ duration: 45*60, title: 'work'       },
@@ -60,7 +60,7 @@
 			if (paused) return;
 			remaining = remaining - 1 || 0;
 		}, 1000)"
-		@keyup.space.prevent.window="if (remaining > 0) paused = !paused"
+		@keyup.space.prevent.document="if (remaining > 0) paused = !paused"
 	>
 		<!-- start timer -->
 		<div
@@ -128,5 +128,13 @@
 			<span>made by Max Tumozov ·</span>
 			<a href="https://github.com/btvoidx/pomodoro" target="_blank">see code on GitHub</a>
 		</footer>
+
+		<cursor-hider
+			class="fixed top-0 bottom-0 left-0 right-0 cursor-none"
+			x-data="{ should_hide: false }"
+			x-show="!paused && should_hide"
+			@mousemove.document="should_hide = false;"
+			@mousemove.document.debounce.7500ms="should_hide = true;"
+		/>
 	</body>
 </html>
