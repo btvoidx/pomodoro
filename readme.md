@@ -7,7 +7,6 @@
 - [Github Pages](https://pages.github.com) for hosting
 
 # Todos
-- [ ] Move tailwind to a CI step
 - [ ] Play sound on timer end
 - [ ] Add customization
   - [ ] Colors customization (text prim/sec/bg paused/running, per timer)

@@ -4,32 +4,23 @@
 		<meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-	  <script src="https://cdn.tailwindcss.com"></script>
 		<script>
-	    tailwind.config = {
-				theme: {
-			    fontFamily: {
-			      sans: ["IBM Plex Sans"]
-			    }
-			  },
-			}
-			
 			const seconds_to_mmss = (remaining) => {
 				const mins = Math.floor(remaining / 60).toString().padStart(2, '0');
 				const secs = Math.floor(remaining % 60).toString().padStart(2, '0');
 				return `${mins}:${secs}`;
 			}
-			
 	  </script>
 	
 		<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">		
 
-		<style>
-			@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
-			[x-cloak] { display: none !important; }
-		</style>
-	</head>
+		<link rel="stylesheet" type="text/css" href="tailwind.css">
+		
 	<body
 		class="
 			h-screen
@@ -37,7 +28,7 @@
 			text-xl text-black bg-white
 			transition-colors
 		"
-		:class="paused || 'bg-black text-white'"
+		:class="paused || '!bg-black !text-white'"
 		x-data="{
 			timers: $persist([
 				{ duration: 45*60, title: 'work'       },
@@ -47,7 +38,6 @@
 			selectedTimer: $persist(0),
 			paused:    $persist(true),
 			remaining: $persist(0),
-
 		}"
 		x-effect="
 			document.title = `${seconds_to_mmss(remaining)} · ${paused ? 'paused ·' : ''} ${timers[selectedTimer].title}`;
@@ -109,7 +99,7 @@
 					<span x-text="timer.title"></span>
 					<span
 						class="-mt-1 text-sm text-gray-700"
-						:class="selectedTimer == i && 'text-gray-300'"
+						:class="selectedTimer == i && '!text-gray-300'"
 						x-text="seconds_to_mmss(timer.duration)"
 					></span>
 				</button>

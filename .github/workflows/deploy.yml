@@ -1,0 +1,43 @@
+name: Deploy to Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      # url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run tailwindcss
+        run: |
+          npx tailwindcss --minify -o out/tailwind.css
+
+      - name: Move index.html to ./out
+        run: |
+          mv index.html out/index.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+      - name: Deploy to Github Pages
+        uses: actions/deploy-pages@v2
+
